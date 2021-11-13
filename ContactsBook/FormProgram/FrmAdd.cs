@@ -1,8 +1,11 @@
 ﻿using BusinessLayers;
+using SQLConnection.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -16,7 +19,12 @@ namespace ContactsBook.FormProgram
         public FrmAdd()
         {
             InitializeComponent();
-            contactService = new ContactService();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString; //Connection SQL
+
+            SqlConnection connection = new SqlConnection();
+
+            contactService = new ContactService(connection);
         }
 
 
@@ -86,7 +94,7 @@ namespace ContactsBook.FormProgram
                 }
                 else
                 {
-                    Contact contact = new Contact()
+                    DataContacts contact = new DataContacts()
                     {
 
                         Name = TxbNameAdd.Text,
@@ -138,18 +146,16 @@ namespace ContactsBook.FormProgram
                 }
                 else
                 {
-                    Contact contact = new Contact()
-                    {
+                    DataContacts contact = new DataContacts();
+                    contact.Name = TxbNameAdd.Text;
+                    contact.LastName = TxbLastAdd.Text;
+                    contact.Address = TxbAddress.Text;
+                    contact.Phone = MtbPhonePersonal.Text;
+                    contact.PhoneWork = MtbPhoneWork.Text;
+                    contact.Id = ContactRepository.Instance.SelectIndex.Value;
 
-                        Name = TxbNameAdd.Text,
-                        LastName = TxbLastAdd.Text,
-                        Address = TxbAddress.Text,
-                        Phone = MtbPhonePersonal.Text,
-                        PhoneWork = MtbPhoneWork.Text
 
-                    };
-
-                    contactService.Edit(ContactRepository.Instance.SelectIndex.Value, contact);
+                    contactService.Edit(contact);
                     MessageBox.Show("Se Edito el Contacto", "Notificación");
                     FormClose();
 
@@ -165,13 +171,16 @@ namespace ContactsBook.FormProgram
         {
             if (ContactRepository.Instance.SelectIndex != null)
             {
-                Contact editContact = contactService.GetById(ContactRepository.Instance.SelectIndex.Value);
+                DataContacts editContact = contactService.GetById(ContactRepository.Instance.SelectIndex.Value);
                 TxbNameAdd.Text = editContact.Name;
                 TxbLastAdd.Text = editContact.LastName;
                 TxbAddress.Text = editContact.Address;
                 MtbPhonePersonal.Text = editContact.Phone;
                 MtbPhoneWork.Text = editContact.PhoneWork;
+                editContact.Id = ContactRepository.Instance.SelectIndex.Value; // REVIEW
             }
+
+            //MOCA AQUÍ 
         }
         #endregion
     }

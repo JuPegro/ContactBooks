@@ -1,35 +1,47 @@
-﻿using System;
+﻿using Database.Models;
+using SQLConnection.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Text;
+
 
 namespace BusinessLayers
 {
     public class ContactService
     {
+        private ContactDataRepository repository;
+
+        public ContactService(SqlConnection connection)
+        {
+            repository = new ContactDataRepository(connection);
+        }
+
         #region "Methods"
-        public void Add(Contact item)
+        public bool Add(DataContacts item)
         {
-            ContactRepository.Instance.Contacts.Add(item);
+            return repository.Add(item);
         }
 
-        public void Edit(int index, Contact item)
+        public bool Edit(DataContacts item)
         {
-            ContactRepository.Instance.Contacts[index] = item;
+            return repository.Edit(item);
         }
 
-        public void Delete(int index)
+        public bool Delete(int id)
         {
-            ContactRepository.Instance.Contacts.RemoveAt(index);
+            return repository.Deleted(id);
         }
 
-        public Contact GetById(int index)
+        public DataContacts GetById(int id)
         {
-            return ContactRepository.Instance.Contacts[index];
+            return repository.GetById(id);
         }
 
-        public List<Contact> GetAll()
+        public DataTable GetAll()
         {
-            return ContactRepository.Instance.Contacts;
+            return repository.GetAll();
         }
 
         #endregion

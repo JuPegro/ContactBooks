@@ -8,3 +8,6 @@ C:\Users\Dell\source\repos\ContactsBook\BusinessLayer\obj\Debug\netcoreapp3.1\Bu
 C:\Users\Dell\source\repos\ContactsBook\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
 C:\Users\Dell\source\repos\ContactsBook\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
 C:\Users\Dell\source\repos\ContactsBook\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\Dell\source\repos\ContactsBook\BusinessLayer\bin\Debug\netcoreapp3.1\Database.dll
+C:\Users\Dell\source\repos\ContactsBook\BusinessLayer\bin\Debug\netcoreapp3.1\Database.pdb
+C:\Users\Dell\source\repos\ContactsBook\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete

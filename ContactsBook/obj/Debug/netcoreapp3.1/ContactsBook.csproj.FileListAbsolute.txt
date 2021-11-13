@@ -22,3 +22,10 @@ C:\Users\Dell\source\repos\ContactsBook\ContactsBook\obj\Debug\netcoreapp3.1\Con
 C:\Users\Dell\source\repos\ContactsBook\ContactsBook\obj\Debug\netcoreapp3.1\ContactsBook.dll
 C:\Users\Dell\source\repos\ContactsBook\ContactsBook\obj\Debug\netcoreapp3.1\ContactsBook.pdb
 C:\Users\Dell\source\repos\ContactsBook\ContactsBook\obj\Debug\netcoreapp3.1\ContactsBook.genruntimeconfig.cache
+C:\Users\Dell\source\repos\ContactsBook\ContactsBook\bin\Debug\netcoreapp3.1\ContactsBook.dll.config
+C:\Users\Dell\source\repos\ContactsBook\ContactsBook\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Dell\source\repos\ContactsBook\ContactsBook\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Dell\source\repos\ContactsBook\ContactsBook\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Dell\source\repos\ContactsBook\ContactsBook\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Dell\source\repos\ContactsBook\ContactsBook\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Dell\source\repos\ContactsBook\ContactsBook\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

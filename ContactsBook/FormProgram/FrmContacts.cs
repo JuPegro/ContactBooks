@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -16,9 +18,14 @@ namespace ContactsBook.FormProgram
         public FrmContacts()
         {
             InitializeComponent();
-            contactService = new ContactService();
-            BtnDeselect.Visible = false;
-            ContactRepository.Instance.SelectIndex = null;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+
+            SqlConnection connection = new SqlConnection();
+
+            contactService = new ContactService(connection);
+
+            Boleans();
         }
 
 
@@ -53,7 +60,7 @@ namespace ContactsBook.FormProgram
         {
             if (e.RowIndex >= 0)
             {
-                ContactRepository.Instance.SelectIndex = e.RowIndex;
+                ContactRepository.Instance.SelectIndex = Convert.ToInt32(DgvContacts.Rows[e.RowIndex].Cells[0].Value.ToString());
                 BtnDeselect.Visible = true;
             }
         }
@@ -81,11 +88,10 @@ namespace ContactsBook.FormProgram
 
         private void LoadData()
         {
-            BindingSource bindingSource = new BindingSource();
-            bindingSource.DataSource = contactService.GetAll();
+            DgvContacts.DataSource = contactService.GetAll();
 
-            DgvContacts.DataSource = bindingSource;
             DgvContacts.ClearSelection();
+
             ContactRepository.Instance.SelectIndex = null;
         }
 
@@ -144,6 +150,12 @@ namespace ContactsBook.FormProgram
             FrmAdd newForm = new FrmAdd();
             newForm.Show();
             this.Hide();
+        }
+
+        public void Boleans()
+        {
+            BtnDeselect.Visible = false;
+            ContactRepository.Instance.SelectIndex = null;
         }
 
         #endregion
