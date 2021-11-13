@@ -1,0 +1,10 @@
+C:\Users\Dell\source\repos\ContactsBook\Database\bin\Debug\netcoreapp3.1\Database.deps.json
+C:\Users\Dell\source\repos\ContactsBook\Database\bin\Debug\netcoreapp3.1\Database.dll
+C:\Users\Dell\source\repos\ContactsBook\Database\bin\Debug\netcoreapp3.1\Database.pdb
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfoInputs.cache
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfo.cs
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.csproj.CoreCompileInputs.cache
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.dll
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.pdb
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.csproj.AssemblyReference.cache

@@ -113,6 +113,7 @@ namespace ContactsBook.FormProgram
             this.BtnEdit.TabIndex = 0;
             this.BtnEdit.Text = "Editar";
             this.BtnEdit.UseVisualStyleBackColor = false;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // BtnDelete
             // 
@@ -129,6 +130,7 @@ namespace ContactsBook.FormProgram
             this.BtnDelete.TabIndex = 1;
             this.BtnDelete.Text = "Eliminar";
             this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnDeselect
             // 
@@ -146,6 +148,7 @@ namespace ContactsBook.FormProgram
             this.BtnDeselect.TabIndex = 2;
             this.BtnDeselect.Text = "Deseleccionar";
             this.BtnDeselect.UseVisualStyleBackColor = false;
+            this.BtnDeselect.Click += new System.EventHandler(this.BtnDeselect_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -178,6 +181,7 @@ namespace ContactsBook.FormProgram
             this.BtnAdd.TabIndex = 0;
             this.BtnAdd.Text = "Agregar Contacto";
             this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // DgvContacts
             // 
@@ -195,6 +199,7 @@ namespace ContactsBook.FormProgram
             this.DgvContacts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvContacts.Size = new System.Drawing.Size(340, 188);
             this.DgvContacts.TabIndex = 1;
+            this.DgvContacts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvContacts_CellContentClick);
             // 
             // menuStrip1
             // 
@@ -218,8 +223,9 @@ namespace ContactsBook.FormProgram
             // cerrarSecciónToolStripMenuItem
             // 
             this.cerrarSecciónToolStripMenuItem.Name = "cerrarSecciónToolStripMenuItem";
-            this.cerrarSecciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSecciónToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cerrarSecciónToolStripMenuItem.Text = "Cerrar Sección";
+            this.cerrarSecciónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSecciónToolStripMenuItem_Click);
             // 
             // FrmContacts
             // 
@@ -232,6 +238,8 @@ namespace ContactsBook.FormProgram
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmContacts";
             this.Text = "Contactos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmContacts_FormClosed);
+            this.Load += new System.EventHandler(this.FrmContacts_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbContacs)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

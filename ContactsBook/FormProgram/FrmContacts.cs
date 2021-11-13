@@ -49,7 +49,7 @@ namespace ContactsBook.FormProgram
             Deselect();
         }
 
-        private void DgvContacts_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvContacts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -91,9 +91,16 @@ namespace ContactsBook.FormProgram
 
         private void Add()
         {
-            FrmAdd newForm = new FrmAdd();
-            newForm.Show();
-            this.Hide();
+            if (ContactRepository.Instance.SelectIndex == null)
+            {
+                FrmAdd newForm = new FrmAdd();
+                newForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Debe Deseleccionar el Contacto Antes de Agregar", "Advertencia");
+            }
         }
 
         private void Deselect()
@@ -101,6 +108,8 @@ namespace ContactsBook.FormProgram
             DgvContacts.ClearSelection();
 
             BtnDeselect.Visible = false;
+
+            ContactRepository.Instance.SelectIndex = null;
         }
 
         private void Delete()

@@ -242,6 +242,7 @@ namespace ContactsBook.FormProgram
             this.BtnAddCont.TabIndex = 0;
             this.BtnAddCont.Text = "Añadir";
             this.BtnAddCont.UseVisualStyleBackColor = false;
+            this.BtnAddCont.Click += new System.EventHandler(this.BtnAddCont_Click);
             // 
             // BtnCancel
             // 
@@ -258,6 +259,7 @@ namespace ContactsBook.FormProgram
             this.BtnCancel.TabIndex = 1;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // menuStrip1
             // 
@@ -283,6 +285,7 @@ namespace ContactsBook.FormProgram
             this.cerrarSecciónToolStripMenuItem.Name = "cerrarSecciónToolStripMenuItem";
             this.cerrarSecciónToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cerrarSecciónToolStripMenuItem.Text = "Cerrar Sección";
+            this.cerrarSecciónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSecciónToolStripMenuItem_Click);
             // 
             // FrmAdd
             // 
@@ -294,6 +297,8 @@ namespace ContactsBook.FormProgram
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmAdd";
             this.Text = "FrmAdd";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAdd_FormClosed);
+            this.Load += new System.EventHandler(this.FrmAdd_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbAdd)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

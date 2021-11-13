@@ -18,12 +18,13 @@ namespace ContactsBook.FormProgram
         }
 
         #region "Events"
-        private void BtnRegister_Click(object sender, EventArgs e)
+
+        private void BtnRegister_Click_1(object sender, EventArgs e)
         {
             RegisterForm();
         }
 
-        private void BtnEntry_Click(object sender, EventArgs e)
+        private void BtnEntry_Click_1(object sender, EventArgs e)
         {
             Login();
         }

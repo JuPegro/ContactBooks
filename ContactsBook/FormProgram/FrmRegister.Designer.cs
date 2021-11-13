@@ -238,6 +238,7 @@ namespace ContactsBook.FormProgram
             this.BtnBack.TabIndex = 0;
             this.BtnBack.Text = "Volver Atras";
             this.BtnBack.UseVisualStyleBackColor = false;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click_1);
             // 
             // BtnConfirm
             // 
@@ -254,6 +255,7 @@ namespace ContactsBook.FormProgram
             this.BtnConfirm.TabIndex = 1;
             this.BtnConfirm.Text = "Confirmar";
             this.BtnConfirm.UseVisualStyleBackColor = false;
+            this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // FrmRegister
             // 
@@ -264,6 +266,7 @@ namespace ContactsBook.FormProgram
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegister";
             this.Text = "Registro";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegister_FormClosed);
             this.TblRegister.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PtbFormularioR)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

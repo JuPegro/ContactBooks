@@ -150,6 +150,7 @@ namespace ContactsBook.FormProgram
             this.BtnEntry.TabIndex = 4;
             this.BtnEntry.Text = "Entrar";
             this.BtnEntry.UseVisualStyleBackColor = false;
+            this.BtnEntry.Click += new System.EventHandler(this.BtnEntry_Click_1);
             // 
             // tableLayoutPanel2
             // 
@@ -182,6 +183,7 @@ namespace ContactsBook.FormProgram
             this.BtnRegister.TabIndex = 3;
             this.BtnRegister.Text = "Registrarse";
             this.BtnRegister.UseVisualStyleBackColor = true;
+            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click_1);
             // 
             // FrmLogin
             // 

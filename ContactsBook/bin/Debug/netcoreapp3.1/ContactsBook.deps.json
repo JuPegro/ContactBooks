@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ContactsBook/1.0.0": {
+        "dependencies": {
+          "BusinessLayer": "1.0.0",
+          "Database": "1.0.0"
+        },
+        "runtime": {
+          "ContactsBook.dll": {}
+        }
+      },
+      "BusinessLayer/1.0.0": {
+        "runtime": {
+          "BusinessLayer.dll": {}
+        }
+      },
+      "Database/1.0.0": {
+        "runtime": {
+          "Database.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ContactsBook/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BusinessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Database/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
