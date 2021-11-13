@@ -33,7 +33,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Dell\\source\\repos\\ContactsBook\\Database\\Database.csproj": {
+                "projectPath": "C:\\Users\\Dell\\source\\repos\\ContactsBook\\Database\\Database.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -175,6 +179,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
