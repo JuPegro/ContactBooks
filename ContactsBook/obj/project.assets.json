@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        }
+      },
+      "Database/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Database.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Database.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLayer/BusinessLayer.csproj",
+      "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
+    },
+    "Database/1.0.0": {
+      "type": "project",
+      "path": "../Database/Database.csproj",
+      "msbuildProject": "../Database/Database.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "BusinessLayer >= 1.0.0",
+      "Database >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Dell\\.nuget\\packages\\": {},
@@ -41,7 +76,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Dell\\source\\repos\\ContactsBook\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\Dell\\source\\repos\\ContactsBook\\BusinessLayer\\BusinessLayer.csproj"
+            },
+            "C:\\Users\\Dell\\source\\repos\\ContactsBook\\Database\\Database.csproj": {
+              "projectPath": "C:\\Users\\Dell\\source\\repos\\ContactsBook\\Database\\Database.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

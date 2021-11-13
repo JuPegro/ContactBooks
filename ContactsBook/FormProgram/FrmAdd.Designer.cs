@@ -281,7 +281,7 @@ namespace ContactsBook.FormProgram
             // cerrarSecciónToolStripMenuItem
             // 
             this.cerrarSecciónToolStripMenuItem.Name = "cerrarSecciónToolStripMenuItem";
-            this.cerrarSecciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSecciónToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cerrarSecciónToolStripMenuItem.Text = "Cerrar Sección";
             // 
             // FrmAdd
