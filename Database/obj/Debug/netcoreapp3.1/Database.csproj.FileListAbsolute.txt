@@ -7,3 +7,4 @@ C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Databas
 C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.csproj.CoreCompileInputs.cache
 C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.dll
 C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.pdb
+C:\Users\Dell\source\repos\ContactsBook\Database\obj\Debug\netcoreapp3.1\Database.csproj.AssemblyReference.cache

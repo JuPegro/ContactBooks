@@ -20,8 +20,7 @@ namespace Database.Models
 
         public bool Add(DataContacts item)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Contacts(Name,LastName,Address,Phone,PhoneWork) " +
-                "VALUES(@name,@lastname,@address,@phone,@phonework)", _Connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Contacts(Name,LastName,Address,Phone,PhoneWork) VALUES(@name,@lastname,@address,@phone,@phonework)", _Connection);
 
             command.Parameters.AddWithValue("@name", item.Name);
             command.Parameters.AddWithValue("@lastname", item.LastName);
@@ -34,8 +33,7 @@ namespace Database.Models
 
         public bool Edit(DataContacts item)
         {
-            SqlCommand command = new SqlCommand("UPDATE Contacts set Name=@name,LastName=@lastname,Address=@address," +
-                "Phone=@phone,PhoneWork=@phonework WHERE Id = @id",_Connection);
+            SqlCommand command = new SqlCommand("UPDATE Contacts set Name=@name,LastName=@lastname,Address=@address,Phone=@phone,PhoneWork=@phonework WHERE Id = @id",_Connection);
 
             command.Parameters.AddWithValue("@name", item.Name);
             command.Parameters.AddWithValue("@lastname", item.LastName);
@@ -49,7 +47,7 @@ namespace Database.Models
 
         public bool Deleted(int id)
         {
-            SqlCommand command = new SqlCommand("DELETED Contacts WHERE Id = @id ", _Connection);
+            SqlCommand command = new SqlCommand("DELETE Contacts WHERE Id = @id ", _Connection);
 
             command.Parameters.AddWithValue("@id", id);
 
@@ -95,8 +93,7 @@ namespace Database.Models
 
         public DataTable GetAll()
         {
-            SqlDataAdapter query = new SqlDataAdapter("SELECT Id as Codigo,Name as Nombre,LastName as Apellido,Address as Dirección" +
-                ",Phone as Télefono,PhoneWork as TélefonoTrabajo FROM Contacts", _Connection);
+            SqlDataAdapter query = new SqlDataAdapter("SELECT Id as Codigo,Name as Nombre,LastName as Apellido,Address as Dirección,Phone as Télefono,PhoneWork as TélefonoTrabajo FROM Contacts", _Connection);
 
             return LoadData(query);
         }

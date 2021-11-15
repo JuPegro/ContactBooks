@@ -22,7 +22,7 @@ namespace ContactsBook.FormProgram
 
             string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString; //Connection SQL
 
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = new SqlConnection(connectionString);
 
             contactService = new ContactService(connection);
         }
@@ -152,7 +152,7 @@ namespace ContactsBook.FormProgram
                     contact.Address = TxbAddress.Text;
                     contact.Phone = MtbPhonePersonal.Text;
                     contact.PhoneWork = MtbPhoneWork.Text;
-                    contact.Id = ContactRepository.Instance.SelectIndex.Value;
+                    contact.Id = (int)ContactRepository.Instance.SelectIndex;
 
 
                     contactService.Edit(contact);
@@ -182,6 +182,7 @@ namespace ContactsBook.FormProgram
 
             //MOCA AQUÍ 
         }
+
         #endregion
     }
 }

@@ -21,7 +21,7 @@ namespace ContactsBook.FormProgram
 
             string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
 
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = new SqlConnection(connectionString);
 
             contactService = new ContactService(connection);
 
@@ -93,6 +93,8 @@ namespace ContactsBook.FormProgram
             DgvContacts.ClearSelection();
 
             ContactRepository.Instance.SelectIndex = null;
+
+            Deselect();
         }
 
         private void Add()
