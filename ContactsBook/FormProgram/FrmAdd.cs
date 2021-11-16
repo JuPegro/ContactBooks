@@ -177,10 +177,8 @@ namespace ContactsBook.FormProgram
                 TxbAddress.Text = editContact.Address;
                 MtbPhonePersonal.Text = editContact.Phone;
                 MtbPhoneWork.Text = editContact.PhoneWork;
-                editContact.Id = ContactRepository.Instance.SelectIndex.Value; // REVIEW
+                editContact.Id = ContactRepository.Instance.SelectIndex.Value;
             }
-
-            //MOCA AQUÍ 
         }
 
         #endregion

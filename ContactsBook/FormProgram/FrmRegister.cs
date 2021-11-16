@@ -1,8 +1,11 @@
 ﻿using BusinessLayers.UserBusiness;
+using SQLConnection.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -16,7 +19,12 @@ namespace ContactsBook.FormProgram
         public FrmRegister()
         {
             InitializeComponent();
-            userService = new UserService();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString; //Connection SQL
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            userService = new UserService(connection);
         }
 
         #region "Events"
@@ -55,8 +63,8 @@ namespace ContactsBook.FormProgram
                 }
                 else if (TbxPassword.Text != null && TxbPasswordC.Text != null && TbxPassword.Text == TxbPasswordC.Text)
                 {
-
-                    Users users = new Users
+                    
+                    DataUser users = new DataUser()
                     {
                         Name = TbxName.Text,
                         LastName = TbxLastName.Text,
@@ -65,9 +73,10 @@ namespace ContactsBook.FormProgram
                     };
 
                     userService.Add(users);
-                    ClearTxb();
                     MessageBox.Show("Se ha registrado con Exito", "Notificación");
+                    ClearTxb();
                     Back();
+                    
                 }
                 else
                 {

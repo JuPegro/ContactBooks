@@ -19,23 +19,25 @@ namespace Database.Models
 
         public bool Add(DataUser item)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Users(Name,LastName,UserName,PassWord) VALUES(@name,@lastname,@username,@password)", _connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Users(Name,LastName,UserName,Password) VALUES(@name,@lastname,@username,@password)", _connection);
 
             command.Parameters.AddWithValue("@name", item.Name);
             command.Parameters.AddWithValue("@lastname", item.LastName);
-            command.Parameters.AddWithValue("@phone", item.UserName);
-            command.Parameters.AddWithValue("@idcontacttype", item.Password);
+            command.Parameters.AddWithValue("@username", item.UserName);
+            command.Parameters.AddWithValue("@password", item.Password);
 
             return ExecuteDml(command);
         }
 
-        public DataUser CheckUser(string userName)
+        public bool CheckUser(string username)
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT UserName FROM Users WHERE UserName = @Username)", _connection);
+                _connection.Open();
 
-                command.Parameters.AddWithValue("@Username", userName);
+                SqlCommand command = new SqlCommand("SELECT UserName FROM Users WHERE UserName = @username)", _connection);
+
+                command.Parameters.AddWithValue("@username", username);
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -43,7 +45,7 @@ namespace Database.Models
 
                 while (reader.Read())
                 {
-                    data.UserName = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                    data.UserName = reader.IsDBNull(0) ? "" : reader.GetString(0);
                 }
 
                 reader.Close();
@@ -52,20 +54,24 @@ namespace Database.Models
                 _connection.Close();
 
                 return data;
+
             }
             catch (Exception ex)
             {
-                return null;
+                return default;
             }
         }
 
-        public DataUser Login(int id)
+        public bool Login(string username, string password)
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT Id,Name,LastName,UserName,PassWord FROM Users WHERE UserName = @username and PassWord = @password", _connection);
+                _connection.Open();
 
-                command.Parameters.AddWithValue("@id", id);
+                SqlCommand command = new SqlCommand("SELECT UserName,PassWord FROM Users WHERE UserName = @username and PassWord = @password", _connection);
+
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@password", password);
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -73,23 +79,18 @@ namespace Database.Models
 
                 while (reader.Read())
                 {
-                    data.Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
-                    data.Name = reader.IsDBNull(1) ? "" : reader.GetString(1);
-                    data.LastName = reader.IsDBNull(2) ? "" : reader.GetString(2);
-                    data.UserName = reader.IsDBNull(3) ? "" : reader.GetString(3);
-                    data.Password = reader.IsDBNull(4) ? "" : reader.GetString(4);
+                    data.UserName = reader.IsDBNull(0) ? "" : reader.GetString(0);
+                    data.Password = reader.IsDBNull(1) ? "" : reader.GetString(1);
                 }
 
                 reader.Close();
                 reader.Dispose();
 
                 _connection.Close();
-
-                return data;
             }
             catch (Exception ex)
             {
-                return null;
+                return false;
             }
         }
 

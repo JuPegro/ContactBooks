@@ -1,7 +1,10 @@
-﻿using System;
+﻿using BusinessLayers.UserBusiness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -10,11 +13,19 @@ namespace ContactsBook.FormProgram
 {
     public partial class FrmLogin : Form
     {
+        private UserService userService;
+
         public static FrmLogin Instance { get; } = new FrmLogin();
 
         public FrmLogin()
         {
             InitializeComponent();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString; //Connection SQL
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            userService = new UserService(connection);
         }
 
         #region "Events"
