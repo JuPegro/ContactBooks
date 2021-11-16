@@ -53,6 +53,7 @@ namespace ContactsBook.FormProgram
             }
             else
             {
+               
                 FrmLogin.Instance.Hide();
                 FrmContacts newForm = new FrmContacts();
                 newForm.Show();

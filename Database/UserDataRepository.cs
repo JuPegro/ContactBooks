@@ -1,6 +1,7 @@
 ﻿using SQLConnection.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -29,13 +30,14 @@ namespace Database.Models
             return ExecuteDml(command);
         }
 
-        public bool CheckUser(string username)
+        public DataUser CheckUser(string username)
         {
-            try
-            {
+            
                 _connection.Open();
 
                 SqlCommand command = new SqlCommand("SELECT UserName FROM Users WHERE UserName = @username)", _connection);
+
+                command.CommandType = CommandType.Text;
 
                 command.Parameters.AddWithValue("@username", username);
 
@@ -55,14 +57,10 @@ namespace Database.Models
 
                 return data;
 
-            }
-            catch (Exception ex)
-            {
-                return default;
-            }
+           
         }
 
-        public bool Login(string username, string password)
+        public DataUser Login(string username, string password)
         {
             try
             {
@@ -87,10 +85,12 @@ namespace Database.Models
                 reader.Dispose();
 
                 _connection.Close();
+
+                return data;
             }
             catch (Exception ex)
             {
-                return false;
+                return default;
             }
         }
 

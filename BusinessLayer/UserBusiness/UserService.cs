@@ -23,12 +23,21 @@ namespace BusinessLayers.UserBusiness
             return repository.Add(item);
         }
 
-        public bool CheckUser(string userName)
+        public bool CheckUser(DataUser userName)
         {
-            return repository.CheckUser(userName);
+            string nick = repository.CheckUser(userName.UserName).UserName;
+            if (userName.UserName == nick)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
-        public bool Login(string username, string password)
+        public DataUser Login(string username, string password)
         {
             return repository.Login(username, password);
         }

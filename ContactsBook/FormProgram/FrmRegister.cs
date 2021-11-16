@@ -63,7 +63,7 @@ namespace ContactsBook.FormProgram
                 }
                 else if (TbxPassword.Text != null && TxbPasswordC.Text != null && TbxPassword.Text == TxbPasswordC.Text)
                 {
-                    
+
                     DataUser users = new DataUser()
                     {
                         Name = TbxName.Text,
@@ -72,11 +72,17 @@ namespace ContactsBook.FormProgram
                         Password = TxbPasswordC.Text
                     };
 
-                    userService.Add(users);
-                    MessageBox.Show("Se ha registrado con Exito", "Notificación");
-                    ClearTxb();
-                    Back();
-                    
+                    if (userService.CheckUser(users))
+                    {
+                        MessageBox.Show("Este Usuario ya esta registrado", "Notificación");
+                    }
+                    else
+                    {
+                        userService.Add(users);
+                        MessageBox.Show("Se ha registrado con Exito", "Notificación");
+                        ClearTxb();
+                        Back();
+                    } 
                 }
                 else
                 {
@@ -88,7 +94,7 @@ namespace ContactsBook.FormProgram
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe Completar todos los Datos", "Advertencia");
+                MessageBox.Show("Debe Completar  los Datos", "Advertencia");
             }
         }
 
