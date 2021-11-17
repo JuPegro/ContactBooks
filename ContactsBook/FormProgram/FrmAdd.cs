@@ -57,13 +57,13 @@ namespace ContactsBook.FormProgram
 
         private void BtnAddCont_Click(object sender, EventArgs e)
         {
-            if (ContactRepository.Instance.SelectIndex == null)
+            if (ContactRepository.Instance.SelectIndex != null)
             {
-                AddContact();
+                EditContact();
             }
             else
             {
-                EditContact();
+                AddContact();
             }
         }
 
@@ -156,6 +156,7 @@ namespace ContactsBook.FormProgram
                     contact.Phone = MtbPhonePersonal.Text;
                     contact.PhoneWork = MtbPhoneWork.Text;
                     contact.Id = (int)ContactRepository.Instance.SelectIndex;
+                    contact.IdUser = (int)UserRepository.Instance.IdUser;
 
 
                     contactService.Edit(contact);

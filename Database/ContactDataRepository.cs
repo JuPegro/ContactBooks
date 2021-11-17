@@ -42,6 +42,7 @@ namespace Database.Models
             command.Parameters.AddWithValue("@phone", item.Phone);
             command.Parameters.AddWithValue("@phonework", item.PhoneWork);
             command.Parameters.AddWithValue("@id", item.Id);
+            command.Parameters.AddWithValue("@userid", item.IdUser);
 
             return ExecuteDml(command);
         }

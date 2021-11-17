@@ -66,11 +66,6 @@ namespace ContactsBook.FormProgram
             }
         }
 
-        private void FrmContacts_VisibleChanged(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             Delete();
@@ -97,8 +92,6 @@ namespace ContactsBook.FormProgram
             DgvContacts.DataSource = contactService.GetAll(UserRepository.Instance.IdUser);
 
             DgvContacts.ClearSelection();
-
-            ContactRepository.Instance.SelectIndex = null;
 
             Deselect();
         }
@@ -164,6 +157,7 @@ namespace ContactsBook.FormProgram
         {
             BtnDeselect.Visible = false;
             ContactRepository.Instance.SelectIndex = null;
+
         }
 
         #endregion
