@@ -72,7 +72,7 @@ namespace ContactsBook.FormProgram
                         Password = TxbPasswordC.Text
                     };
 
-                    if (userService.CheckUser(users))
+                    if (userService.CheckUser(users.UserName) == users.UserName)
                     {
                         MessageBox.Show("Este Usuario ya esta registrado", "Notificación");
                     }
@@ -82,7 +82,7 @@ namespace ContactsBook.FormProgram
                         MessageBox.Show("Se ha registrado con Exito", "Notificación");
                         ClearTxb();
                         Back();
-                    } 
+                    }
                 }
                 else
                 {
@@ -94,8 +94,11 @@ namespace ContactsBook.FormProgram
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe Completar  los Datos", "Advertencia");
+                MessageBox.Show("Debe Completar todos los Datos", "Error");
             }
+                
+          
+            
         }
 
         public void Back()

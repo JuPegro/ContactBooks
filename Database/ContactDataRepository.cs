@@ -20,13 +20,14 @@ namespace Database.Models
 
         public bool Add(DataContacts item)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Contacts(Name,LastName,Address,Phone,PhoneWork) VALUES(@name,@lastname,@address,@phone,@phonework)", _Connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Contacts(Name,LastName,Address,Phone,PhoneWork,UserId) VALUES(@name,@lastname,@address,@phone,@phonework,@userid)", _Connection);
 
             command.Parameters.AddWithValue("@name", item.Name);
             command.Parameters.AddWithValue("@lastname", item.LastName);
             command.Parameters.AddWithValue("@address", item.Address);
             command.Parameters.AddWithValue("@phone", item.Phone);
             command.Parameters.AddWithValue("@phonework", item.PhoneWork);
+            command.Parameters.AddWithValue("@userid", item.IdUser);
 
             return ExecuteDml(command);
         }
@@ -91,9 +92,13 @@ namespace Database.Models
             }
         }
 
-        public DataTable GetAll()
+        public DataTable GetAll(int id)
         {
-            SqlDataAdapter query = new SqlDataAdapter("SELECT Id as Codigo,Name as Nombre,LastName as Apellido,Address as Dirección,Phone as Télefono,PhoneWork as TélefonoTrabajo FROM Contacts", _Connection);
+            SqlDataAdapter query = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand("SELECT Id as Codigo, Name as Nombre, LastName as Apellido, Address as Dirección, Phone as Télefono, PhoneWork as TélefonoTrabajo FROM Contacts WHERE UserId = @id", _Connection);
+
+            command.Parameters.AddWithValue("@id", id);
+            query.SelectCommand = command;
 
             return LoadData(query);
         }

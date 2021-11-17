@@ -1,4 +1,5 @@
 ﻿using BusinessLayers;
+using BusinessLayers.UserBusiness;
 using SQLConnection.Models;
 using System;
 using System.Collections.Generic;
@@ -101,11 +102,13 @@ namespace ContactsBook.FormProgram
                         LastName = TxbLastAdd.Text,
                         Address = TxbAddress.Text,
                         Phone = MtbPhonePersonal.Text,
-                        PhoneWork = MtbPhoneWork.Text
+                        PhoneWork = MtbPhoneWork.Text,
+                        IdUser = UserRepository.Instance.IdUser
 
                     };
 
                     contactService.Add(contact);
+
                     MessageBox.Show("Se Agrego el Nuevo Contacto", "Notificación");
                     ClearTbx();
 

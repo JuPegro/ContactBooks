@@ -30,12 +30,13 @@ namespace Database.Models
             return ExecuteDml(command);
         }
 
-        public DataUser CheckUser(string username)
+        public string CheckUser(string username)
         {
-            
+            try
+            {
                 _connection.Open();
 
-                SqlCommand command = new SqlCommand("SELECT UserName FROM Users WHERE UserName = @username)", _connection);
+                SqlCommand command = new SqlCommand("SELECT UserName FROM Users WHERE UserName = @username", _connection);
 
                 command.CommandType = CommandType.Text;
 
@@ -43,42 +44,11 @@ namespace Database.Models
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                DataUser data = new DataUser();
+                string data = "";
 
                 while (reader.Read())
                 {
-                    data.UserName = reader.IsDBNull(0) ? "" : reader.GetString(0);
-                }
-
-                reader.Close();
-                reader.Dispose();
-
-                _connection.Close();
-
-                return data;
-
-           
-        }
-
-        public DataUser Login(string username, string password)
-        {
-            try
-            {
-                _connection.Open();
-
-                SqlCommand command = new SqlCommand("SELECT UserName,PassWord FROM Users WHERE UserName = @username and PassWord = @password", _connection);
-
-                command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                DataUser data = new DataUser();
-
-                while (reader.Read())
-                {
-                    data.UserName = reader.IsDBNull(0) ? "" : reader.GetString(0);
-                    data.Password = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                    data = reader.IsDBNull(0) ? "" : reader.GetString(0);
                 }
 
                 reader.Close();
@@ -90,7 +60,44 @@ namespace Database.Models
             }
             catch (Exception ex)
             {
-                return default;
+                return null;
+            }
+        }
+
+        public DataUser Login(string username, string password)
+        {
+            try
+            {
+                _connection.Open();
+
+                SqlCommand command = new SqlCommand("SELECT Id,Name,LastName,UserName,PassWord FROM Users WHERE UserName = @username and PassWord = @password", _connection);
+
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@password", password);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                DataUser data = new DataUser();
+
+                while (reader.Read())
+                {
+                    data.Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                    data.Name = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                    data.LastName = reader.IsDBNull(2) ? "" : reader.GetString(2);
+                    data.UserName = reader.IsDBNull(3) ? "" : reader.GetString(3);
+                    data.Password = reader.IsDBNull(4) ? "" : reader.GetString(4);
+                }
+
+                reader.Close();
+                reader.Dispose();
+
+                _connection.Close();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

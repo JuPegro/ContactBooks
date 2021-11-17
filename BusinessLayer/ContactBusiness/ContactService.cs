@@ -39,9 +39,9 @@ namespace BusinessLayers
             return repository.GetById(id);
         }
 
-        public DataTable GetAll()
+        public DataTable GetAll(int id)
         {
-            return repository.GetAll();
+            return repository.GetAll(id);
         }
 
         #endregion

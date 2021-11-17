@@ -18,5 +18,7 @@ namespace SQLConnection.Models
 
         public string PhoneWork { get; set; }
 
+        public int IdUser { get; set; }
+
     }
 }

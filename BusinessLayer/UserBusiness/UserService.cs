@@ -23,17 +23,9 @@ namespace BusinessLayers.UserBusiness
             return repository.Add(item);
         }
 
-        public bool CheckUser(DataUser userName)
+        public string CheckUser(string userName)
         {
-            string nick = repository.CheckUser(userName.UserName).UserName;
-            if (userName.UserName == nick)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return repository.CheckUser(userName);
             
         }
 

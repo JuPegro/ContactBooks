@@ -1,4 +1,5 @@
 ﻿using BusinessLayers.UserBusiness;
+using SQLConnection.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,11 +54,20 @@ namespace ContactsBook.FormProgram
             }
             else
             {
-               
-                FrmLogin.Instance.Hide();
-                FrmContacts newForm = new FrmContacts();
-                newForm.Show();
-                ClearTxb();
+                DataUser data = userService.Login(TxbUserLogin.Text, TxbPasswordLogin.Text);
+                if (data.UserName == TxbUserLogin.Text && data.Password == TxbPasswordLogin.Text)
+                {
+                    UserRepository.Instance.IdUser = data.Id;
+
+                    FrmLogin.Instance.Hide();
+                    FrmContacts newForm = new FrmContacts();
+                    newForm.Show();
+                    ClearTxb();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o Contraseña incorrecto", "Advertencia");
+                }
             }
         }
 

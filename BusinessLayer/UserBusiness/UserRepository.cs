@@ -11,6 +11,8 @@ namespace BusinessLayers.UserBusiness
 
         public List<Users> User { get; set; } = new List<Users>();
 
+        public int IdUser = 0;
+
 
         private UserRepository()
         {

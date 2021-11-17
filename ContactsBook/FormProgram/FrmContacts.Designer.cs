@@ -240,6 +240,7 @@ namespace ContactsBook.FormProgram
             this.Text = "Contactos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmContacts_FormClosed);
             this.Load += new System.EventHandler(this.FrmContacts_Load);
+            this.VisibleChanged += new System.EventHandler(this.FrmContacts_VisibleChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbContacs)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

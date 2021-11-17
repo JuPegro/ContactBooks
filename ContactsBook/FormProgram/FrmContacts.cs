@@ -1,4 +1,5 @@
 ﻿using BusinessLayers;
+using BusinessLayers.UserBusiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,6 +66,11 @@ namespace ContactsBook.FormProgram
             }
         }
 
+        private void FrmContacts_VisibleChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             Delete();
@@ -88,7 +94,7 @@ namespace ContactsBook.FormProgram
 
         private void LoadData()
         {
-            DgvContacts.DataSource = contactService.GetAll();
+            DgvContacts.DataSource = contactService.GetAll(UserRepository.Instance.IdUser);
 
             DgvContacts.ClearSelection();
 
